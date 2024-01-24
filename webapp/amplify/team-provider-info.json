@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smartnext-dev-91855-authRole",
+      "UnauthRoleArn": "arn:aws:iam::566864112936:role/amplify-smartnext-dev-91855-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::566864112936:role/amplify-smartnext-dev-91855-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-smartnext-dev-91855-deployment",
+      "UnauthRoleName": "amplify-smartnext-dev-91855-unauthRole",
+      "StackName": "amplify-smartnext-dev-91855",
+      "StackId": "arn:aws:cloudformation:eu-west-1:566864112936:stack/amplify-smartnext-dev-91855/3aaf5090-b5da-11ee-a701-063e90c2449d",
+      "AmplifyAppId": "d28w4hgiosc7os"
+    },
+    "categories": {
+      "auth": {
+        "smartnext331cfb8a": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

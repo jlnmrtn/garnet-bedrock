@@ -1,78 +1,57 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-smartnext-dev-91855-authRole",
-      "UnauthRoleArn": "arn:aws:iam::566864112936:role/amplify-smartnext-dev-91855-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::566864112936:role/amplify-smartnext-dev-91855-authRole",
-      "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-smartnext-dev-91855-deployment",
-      "UnauthRoleName": "amplify-smartnext-dev-91855-unauthRole",
-      "StackName": "amplify-smartnext-dev-91855",
-      "StackId": "arn:aws:cloudformation:eu-west-1:566864112936:stack/amplify-smartnext-dev-91855/3aaf5090-b5da-11ee-a701-063e90c2449d",
-      "AmplifyAppId": "d28w4hgiosc7os"
+      "AuthRoleName": "amplify-smartnext-grupotemp-174827-authRole",
+      "UnauthRoleArn": "arn:aws:iam::457403640123:role/amplify-smartnext-grupotemp-174827-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::457403640123:role/amplify-smartnext-grupotemp-174827-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-smartnext-grupotemp-174827-deployment",
+      "UnauthRoleName": "amplify-smartnext-grupotemp-174827-unauthRole",
+      "StackName": "amplify-smartnext-grupotemp-174827",
+      "StackId": "arn:aws:cloudformation:eu-central-1:457403640123:stack/amplify-smartnext-grupotemp-174827/90bf29c0-bba1-11ee-a9d0-0665917746e7",
+      "AmplifyAppId": "d1a6eqfsiakbqv"
     }
   },
   "auth": {
     "smartnext331cfb8a": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
       "customAuth": false,
+      "dependsOn": [],
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [],
-        "signupAttributes": [
-          "EMAIL"
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
         ],
         "passwordProtectionSettings": {
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": []
         },
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
+        "signupAttributes": [
+          "EMAIL"
         ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smartnext-dev-91855-deployment/amplify-cfn-templates/auth/smartnext331cfb8a-cloudformation-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smartnext-grupotemp-174827-deployment/amplify-cfn-templates/auth/smartnext331cfb8a-cloudformation-template.json",
         "logicalId": "authsmartnext331cfb8a"
       },
-      "lastPushTimeStamp": "2024-01-18T13:49:04.266Z",
+      "lastPushTimeStamp": "2024-01-25T16:51:42.847Z",
       "output": {
-        "UserPoolId": "eu-west-1_PV8GTvWZL",
-        "AppClientIDWeb": "62dvhak4s0gmk7heogrp5uqhvp",
-        "AppClientID": "439nhmrgc8c6d826dh2m2f1cdl",
-        "IdentityPoolId": "eu-west-1:72fb4917-5a7f-43d5-af39-8bb555f2211b",
-        "UserPoolArn": "arn:aws:cognito-idp:eu-west-1:566864112936:userpool/eu-west-1_PV8GTvWZL",
-        "IdentityPoolName": "smartnext331cfb8a_identitypool_331cfb8a__dev",
+        "UserPoolId": "eu-central-1_w9uVCKxPU",
+        "AppClientIDWeb": "6vv140co8hvrs4omhn4r78r5u1",
+        "AppClientID": "2u6c113btjok9pvd2t5kduo5e9",
+        "IdentityPoolId": "eu-central-1:d567d9bf-0a9e-4f29-8940-909e73c15ecf",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-central-1:457403640123:userpool/eu-central-1_w9uVCKxPU",
+        "IdentityPoolName": "smartnext331cfb8a_identitypool_331cfb8a__grupotemp",
         "UserPoolName": "smartnext331cfb8a_userpool_331cfb8a"
       },
       "lastPushDirHash": "ILLhMSh8MBgDG+iqrzf2sw4zaYE="
     }
   },
-  "hosting": {
-    "S3AndCloudFront": {
-      "service": "S3AndCloudFront",
-      "providerPlugin": "awscloudformation",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smartnext-dev-91855-deployment/amplify-cfn-templates/hosting/template.json",
-        "logicalId": "hostingS3AndCloudFront"
-      },
-      "lastPushTimeStamp": "2024-01-18T13:49:04.271Z",
-      "output": {
-        "CloudFrontSecureURL": "https://d2b7bnhutikk6c.cloudfront.net",
-        "S3BucketSecureURL": "https://smartnext-20240118142551-hostingbucket-dev.s3.amazonaws.com",
-        "CloudFrontOriginAccessIdentity": "ELK0ZN4Y31GDS",
-        "WebsiteURL": "http://smartnext-20240118142551-hostingbucket-dev.s3-website-eu-west-1.amazonaws.com",
-        "CloudFrontDistributionID": "ED0TGK2X8BV75",
-        "Region": "eu-west-1",
-        "HostingBucketName": "smartnext-20240118142551-hostingbucket-dev",
-        "CloudFrontDomainName": "d2b7bnhutikk6c.cloudfront.net"
-      },
-      "lastPushDirHash": "6Ye8nD9F8TJuXxzmedNsIZatxLI="
-    }
-  }
+  "hosting": {}
 }

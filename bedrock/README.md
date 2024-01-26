@@ -32,6 +32,17 @@ https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html
     />
 </p>
 
+
+### ReAct Prompting
+
+FMs determine how to solve user-requested tasks with a technique called ReAct . It’s a general paradigm that combines reasoning and acting with FMs. ReAct prompts FMs to generate verbal reasoning traces and actions for a task. This allows the system to perform dynamic reasoning to create, maintain, and adjust plans for acting while incorporating additional information into the reasoning. The structured prompts include a sequence of question-thought-action-observation examples.
+
+* The question is the user-requested task or problem to solve.
+* The thought is a reasoning step that helps demonstrate to the FM how to tackle the problem and identify an action to take.
+* The action is an API that the model can invoke from an allowed set of APIs.
+* The observation is the result of carrying out the action.
+
+
 In fact we will use bedrock agent as a reasoning AI
 
 * It means that we will provide the necessary API call to the different systems. The AI will choose the best option
@@ -39,6 +50,11 @@ In fact we will use bedrock agent as a reasoning AI
 * After processing the user prompt the Agent will decide to call the geocoding API to first get the coordinates of Lille EUROPE train station
 * Then it will be able call garnet with the geo-queries capabilities (using the coordinates it got from the previous step) , and get the details for the appropriate station.
 * He will then be able to generate an answer to the user in a natural language
+
+1. You can create an agent with Bedrock-supported FMs such as Anthropic Claude .
+1. Attach API schema, residing in an Amazon Simple Storage Service (Amazon S3)  bucket, and a Lambda function containing the business logic to the agent.
+1. The agent uses customer requests to create a prompt using the ReAct framework. It, then, uses the API schema to invoke corresponding code in the Lambda function.
+1. You can perform a variety of tasks including sending email notifications, writing to databases, triggering application APIs in the Lambda functions.
 
 
 Now you can imagine an extre step to calculate the trip time. For this you might need to call a 3rd API to get the trip time. 
@@ -53,9 +69,43 @@ With bedrock you can follow all the reasoning steps:
 
 
 
-## Bedrock Agent Implementation
+## Agents for Bedrock Setup
+
+
+### Setting up Action Group
+
+Before you create your agent, you should set up action groups and knowledge bases that you want to add to your agent.
+
+* Action groups define the tasks that you want your agent to help customers carry out.
+
+Knowledge bases provide a repository of information that the agent can query to answer customer queries and improve its generated responses. For more information, see Knowledge base for Amazon Bedrock.
+
+An action group consists of the following components that you set up.
+
+* An OpenAPI schema that define the APIs that your action group should call. Your agent uses the API schema to determine the fields it needs to elicit from the customer to populate for the API request.
+
+* A Lambda function that defines the business logic for the action that your agent will carry out.
+
+
+* **API Schema**:
+When you create an action group, you must define the APIs that the agent can invoke with an OpenAPI schema in JSON or YAML format. You can create OpenAPI schema files yourself and upload them to Amazon S3 buckets, or you can use the OpenAPI text editor in order to easily validate your schema. The text editor is available after you create the agent. You can use the text editor when you add an action group to an agent or edit an existing one (for more information, see Manage your agent ).
+
+The following is the general format of an OpenAPI schema for an action group.
+
+Minimally, each method requires:
+
+* description – A description of the API operation. Use this field to inform the agent when this API should be called and what it does.
+* responses – The properties defined for the operation response are not just used for constructing prompts. They are used for accurately processing the results of an API call, and for determining a proper set of steps for carrying out a task. By knowing the response coming back from one operation, the agent can know that those values can be used as inputs for subsequent steps in the process.
+
+The Lambda containing the logic that will be executed by the agent and The openAPISpec documentation that will tell the agent which functions to call 
+Upload it to a S3 bucket. 
+
+
+
 
 ### Lambda Deployment
+
+When creating an Action group, you need to define a Lambda function to program the business logic for your action group and to customize how you want the API response to be returned. You use the variables from the input event to define your functions and return a response to the agent. To write your function, you will need to understand the format of the input event and expected response. You must attach a resource-based policy to your Lambda function. For more information about resource-based policies in Lambda, see Using resource-based policies for Lambda .  
 
 Create the function the agent will use to retrieve data and call the different API.
 We need the geoloc API call to get the exact locations. In this example we are using locationiq.com but you can use a geolocation service of your own.
@@ -129,9 +179,6 @@ Commands you can use next
 [*] Test Function in the Cloud: cd vlilleAgent && sam sync --stack-name {stack-name} --watch
 ```
 
-* **API Schema**:
-The Lambda containing the logic that will be executed by the agent and The openAPISpec documentation that will tell the agent which functions to call 
-Upload it to a S3 bucket. 
 
 ### Bedrock Agent configuration
 

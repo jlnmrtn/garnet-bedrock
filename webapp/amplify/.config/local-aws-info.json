@@ -3,5 +3,10 @@
     "configLevel": "project",
     "useProfile": true,
     "profileName": "jlnmrtn+app1-Admin"
+  },
+  "grupotemp": {
+    "configLevel": "project",
+    "useProfile": true,
+    "profileName": "jlnmrtn+AllSBX-Admin"
   }
 }

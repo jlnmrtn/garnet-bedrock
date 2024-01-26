@@ -19,5 +19,23 @@
         "S3AndCloudFront": {}
       }
     }
+  },
+  "grupotemp": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smartnext-grupotemp-174827-authRole",
+      "UnauthRoleArn": "arn:aws:iam::457403640123:role/amplify-smartnext-grupotemp-174827-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::457403640123:role/amplify-smartnext-grupotemp-174827-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-smartnext-grupotemp-174827-deployment",
+      "UnauthRoleName": "amplify-smartnext-grupotemp-174827-unauthRole",
+      "StackName": "amplify-smartnext-grupotemp-174827",
+      "StackId": "arn:aws:cloudformation:eu-central-1:457403640123:stack/amplify-smartnext-grupotemp-174827/90bf29c0-bba1-11ee-a9d0-0665917746e7",
+      "AmplifyAppId": "d1a6eqfsiakbqv"
+    },
+    "categories": {
+      "auth": {
+        "smartnext331cfb8a": {}
+      }
+    }
   }
 }

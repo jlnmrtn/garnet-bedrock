@@ -45,7 +45,7 @@ function HomePage({ signOut, user }: WithAuthenticatorProps) {
             <div className="flex items-center justify-center space-x-4 ">
               <GiBrain size="70" className="text-3xl text-cyan-500" />
               <div className="text-lg  font-mono p-4 overflow-auto border border-solid rounded-xl max-w-3xl shadow-xl bg-gradient-to-br from-violet-200 to-pink-200 ">
-                Helloooo !! I am a super Dumb Guy ask me questions about Bikes
+                Helloooo !! I am an agent,  ask me questions about Bikes
               </div>
             </div>
           )}

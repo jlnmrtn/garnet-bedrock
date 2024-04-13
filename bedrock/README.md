@@ -116,6 +116,12 @@ We need the current status and the short temporal status from the garnet Framewo
 
 In this tutorial , we are using SAM to deploy this lambda but you can of course choose your preferred/usual way (console/CDK/terraform)
 
+Get a api key from the location service use in this example and replace it the `get_info/app.py` file
+```
+line 100:
+url = f'https://us1.locationiq.com/v1/search?key=KEY&q=${location_name}&format=json'
+```
+
 ```
 sam init
 

@@ -34,8 +34,8 @@ export async function POST(req: Request) {
 
   const command = {
     // InvokeAgentRequest
-    agentId: "FRG2F4RLBS", // required
-    agentAliasId: "YXJSH5IQ9L", // required
+    agentId: "XXXXXXXXX", // required
+    agentAliasId: "XXXXXXXX", // required
     sessionId: user.userSub, // required
     endSession: end,
     enableTrace: false,

@@ -24,6 +24,13 @@ bun install
 ## Give amplify role access to call the bedrock agent
 
 
+## Configure your frontend to interact with your bedrock agent
+Update the 2 following parameters in `api/chat/route.rs` file  
+```
+agentId: "XXXXXXXXX", // required
+agentAliasId: "XXXXXXXX", // required
+```
+
 ## Start the project locally
 
 ```bash
